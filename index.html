@@ -24,11 +24,8 @@
   .tldr h2 { margin-top: 0; border: none; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent); }
   .tldr ul { margin: 0.5rem 0 0; padding-left: 1.1rem; }
   .tldr li { margin-bottom: 0.4rem; }
-  nav.toc { margin-top: 1.5rem; font-size: 0.92rem; }
-  nav.toc a { color: var(--accent); text-decoration: none; }
-  nav.toc a:hover { text-decoration: underline; }
-  nav.toc ul { list-style: none; padding-left: 0; margin: 0.5rem 0 0; }
-  nav.toc li { margin-bottom: 0.3rem; }
+  .tldr a { color: var(--accent); text-decoration: none; }
+  .tldr a:hover { text-decoration: underline; }
   .item { margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px dashed var(--border); }
   .item:last-child { border-bottom: none; }
   .item h3 { margin: 0 0 0.3rem; font-size: 1rem; }
@@ -53,26 +50,12 @@
   <section class="tldr">
     <h2>TL;DR</h2>
     <ul>
-      <li><strong>JS Frameworks:</strong> React still dominant (~40&ndash;45% share); Svelte and Vue both mid-transition (SvelteKit 3 preview, Vue Vapor Mode still prerelease).</li>
-      <li><strong>Frontend Tooling:</strong> Rust is eating the JS toolchain &mdash; Astro 7 and Vite 8 both moved to Rust-based compilers/bundlers (Rolldown), with large build-speed gains.</li>
-      <li><strong>Backend Frameworks:</strong> Routine point releases only (Django 6.1, Laravel 13.x); most ecosystems had no dated news this week.</li>
-      <li><strong>AI/Agentic Dev Tooling:</strong> &ldquo;Context engineering&rdquo; overtaking prompt engineering as the framing; Claude Code and Cursor continue taking measurable share from GitHub Copilot.</li>
+      <li><a href="#js-frameworks"><strong>JS Frameworks:</strong></a> React still dominant (~40&ndash;45% share); Svelte and Vue both mid-transition (SvelteKit 3 preview, Vue Vapor Mode still prerelease).</li>
+      <li><a href="#frontend-tooling"><strong>Frontend Tooling:</strong></a> Rust is eating the JS toolchain &mdash; Astro 7 and Vite 8 both moved to Rust-based compilers/bundlers (Rolldown), with large build-speed gains.</li>
+      <li><a href="#backend-frameworks"><strong>Backend Frameworks:</strong></a> Routine point releases only (Django 6.1, Laravel 13.x); most ecosystems had no dated news this week.</li>
+      <li><a href="#ai-agentic-dev-tooling"><strong>AI/Agentic Dev Tooling:</strong></a> &ldquo;Context engineering&rdquo; overtaking prompt engineering as the framing; Claude Code and Cursor continue taking measurable share from GitHub Copilot.</li>
     </ul>
   </section>
-
-  <nav class="toc">
-    <strong>Contents</strong>
-    <ul>
-      <li><a href="#vs-last-week">vs. Last Week</a></li>
-      <li><a href="#js-frameworks">JS Frameworks</a></li>
-      <li><a href="#frontend-tooling">Frontend Tooling</a></li>
-      <li><a href="#backend-frameworks">Backend Frameworks</a></li>
-      <li><a href="#ai-agentic-dev-tooling">AI/Agentic Dev Tooling</a></li>
-    </ul>
-  </nav>
-
-  <h2 id="vs-last-week">vs. Last Week</h2>
-  <p class="note">No prior log entry exists yet, so no comparison. This report establishes the baseline; next week's run will diff against it.</p>
 
   <h2 id="js-frameworks">JS Frameworks</h2>
 
