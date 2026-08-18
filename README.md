@@ -17,16 +17,9 @@ Every item in a report links to a real, checkable source. Where a claim can't be
 
 ## Publishing
 
-Reports are generated automatically into this folder, but pushing to GitHub is a manual step, done from a separate plain git clone (not this folder itself) — this folder's file protections prevent git from running reliably inside it.
-
-**One-time setup**, in Terminal:
-```
-git clone https://github.com/dmserrano/web-dev-trend-tracker.git ~/dev/web-dev-trend-tracker
-```
+Reports are generated automatically and hosted via Github Pages.
 
 **After each weekly run**, sync and push:
 ```
 ~/workspace/trend-tracker/publish.sh
 ```
-
-This runs the rsync + commit + push in one step, and skips the commit/push if nothing changed.
