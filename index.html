@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Dev Trend Tracker — 2026-08-18</title>
+<style>
+  :root {
+    --bg: #0f1117; --panel: #171a23; --text: #e6e8ee; --muted: #9aa1b1;
+    --accent: #7dd3fc; --border: #2a2f3d; --tag-bg: #1f2433;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0 1.25rem 4rem; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  header { padding: 2.5rem 0 1rem; border-bottom: 1px solid var(--border); }
+  h1 { font-size: 1.5rem; margin: 0 0 0.25rem; }
+  .date { color: var(--muted); font-size: 0.9rem; }
+  h2 { font-size: 1.15rem; margin-top: 2.5rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); scroll-margin-top: 1rem; }
+  .tldr { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; margin-top: 1.5rem; }
+  .tldr h2 { margin-top: 0; border: none; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent); }
+  .tldr ul { margin: 0.5rem 0 0; padding-left: 1.1rem; }
+  .tldr li { margin-bottom: 0.4rem; }
+  nav.toc { margin-top: 1.5rem; font-size: 0.92rem; }
+  nav.toc a { color: var(--accent); text-decoration: none; }
+  nav.toc a:hover { text-decoration: underline; }
+  nav.toc ul { list-style: none; padding-left: 0; margin: 0.5rem 0 0; }
+  nav.toc li { margin-bottom: 0.3rem; }
+  .item { margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px dashed var(--border); }
+  .item:last-child { border-bottom: none; }
+  .item h3 { margin: 0 0 0.3rem; font-size: 1rem; }
+  .item p { margin: 0 0 0.5rem; }
+  .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+  .tag { background: var(--tag-bg); color: var(--muted); font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 999px; border: 1px solid var(--border); }
+  .src { font-size: 0.85rem; }
+  .src a { color: var(--accent); }
+  .unverified { color: #f4a15a; font-size: 0.82rem; font-style: italic; }
+  .note { color: var(--muted); font-size: 0.9rem; font-style: italic; }
+  footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Web Dev Trend Tracker</h1>
+    <div class="date">Week of 2026-08-18</div>
+  </header>
+
+  <section class="tldr">
+    <h2>TL;DR</h2>
+    <ul>
+      <li><strong>JS Frameworks:</strong> React still dominant (~40&ndash;45% share); Svelte and Vue both mid-transition (SvelteKit 3 preview, Vue Vapor Mode still prerelease).</li>
+      <li><strong>Frontend Tooling:</strong> Rust is eating the JS toolchain &mdash; Astro 7 and Vite 8 both moved to Rust-based compilers/bundlers (Rolldown), with large build-speed gains.</li>
+      <li><strong>Backend Frameworks:</strong> Routine point releases only (Django 6.1, Laravel 13.x); most ecosystems had no dated news this week.</li>
+      <li><strong>AI/Agentic Dev Tooling:</strong> &ldquo;Context engineering&rdquo; overtaking prompt engineering as the framing; Claude Code and Cursor continue taking measurable share from GitHub Copilot.</li>
+    </ul>
+  </section>
+
+  <nav class="toc">
+    <strong>Contents</strong>
+    <ul>
+      <li><a href="#vs-last-week">vs. Last Week</a></li>
+      <li><a href="#js-frameworks">JS Frameworks</a></li>
+      <li><a href="#frontend-tooling">Frontend Tooling</a></li>
+      <li><a href="#backend-frameworks">Backend Frameworks</a></li>
+      <li><a href="#ai-agentic-dev-tooling">AI/Agentic Dev Tooling</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="vs-last-week">vs. Last Week</h2>
+  <p class="note">No prior log entry exists yet, so no comparison. This report establishes the baseline; next week's run will diff against it.</p>
+
+  <h2 id="js-frameworks">JS Frameworks</h2>
+
+  <div class="item">
+    <h3>Svelte / SvelteKit 3 preview</h3>
+    <div class="tags"><span class="tag">Adoption shift</span></div>
+    <p>Thirteen <code>@next</code> preview releases shipped in July previewing SvelteKit 3, including new <code>$app/manifest</code> and <code>$app/service-worker</code> modules, better type checking in service workers, and shallow routing baked into <code>goto</code>.</p>
+    <div class="src">Source: <a href="https://svelte.dev/blog/whats-new-in-svelte-august-2026" target="_blank" rel="noopener">svelte.dev — What's new in Svelte: August 2026</a> (official project blog)</div>
+  </div>
+
+  <div class="item">
+    <h3>Vue 3.6 / Vapor Mode still prerelease</h3>
+    <div class="tags"><span class="tag">New release (pending)</span></div>
+    <p>As of Aug 11, Vue 3.6.0-rc.3 remains a prerelease (3.5.41 is still "Latest" on npm). Vapor Mode &mdash; direct DOM updates with no Virtual DOM &mdash; is stabilizing but a <code>vaporInteropPlugin</code> is needed to mix Vapor and VDOM components.</p>
+    <div class="src">Source: <a href="https://todovue.blog/blog/vue-3-6-rc-vapor-mode-status-limits-evaluation-2026.en/" target="_blank" rel="noopener">todovue.blog — Vue 3.6 RC and Vapor Mode</a></div>
+    <div class="unverified">Third-party blog, not the official Vue project &mdash; treat specifics as directional pending official release notes.</div>
+  </div>
+
+  <div class="item">
+    <h3>React holds ~40&ndash;45% market share</h3>
+    <div class="tags"><span class="tag">Adoption shift</span></div>
+    <p>React remains dominant, with the React 19 compiler cutting unnecessary re-renders 25&ndash;40% in cited benchmarks. No major release news this week specifically.</p>
+    <div class="src">Source: <a href="https://www.nucamp.co/blog/javascript-framework-trends-in-2026-what-s-new-in-react-next.js-vue-angular-and-svelte" target="_blank" rel="noopener">Nucamp — JavaScript Framework Trends in 2026</a></div>
+    <div class="unverified">Market-share figure is from a secondary blog roundup, not a primary survey &mdash; treat as approximate.</div>
+  </div>
+
+  <h2 id="frontend-tooling">Frontend Tooling</h2>
+
+  <div class="item">
+    <h3>Astro 7 alpha ships with Rust compiler + Vite 8</h3>
+    <div class="tags"><span class="tag">New release</span></div>
+    <p>The <code>.astro</code> compiler has been rewritten in Rust, Markdown/MDX processing moves to a new Rust pipeline, and Astro now sits on Vite 8. Builds are 15&ndash;61% faster depending on project size.</p>
+    <div class="src">Source: <a href="https://www.infoq.com/news/2026/08/astro-7-release-speed/" target="_blank" rel="noopener">InfoQ — Astro 7: Rust Compiler, Vite 8, Up to 61% Faster Builds</a></div>
+  </div>
+
+  <div class="item">
+    <h3>Vite 8.0 released, ships Rolldown by default</h3>
+    <div class="tags"><span class="tag">New release</span></div>
+    <p>Rolldown, a Rust-based bundler, now replaces both esbuild (dev) and Rollup (prod) in a single tool, claiming 10&ndash;30x speed over Rollup while keeping Rollup plugin API compatibility.</p>
+    <div class="src">Source: <a href="https://vite.dev/blog/announcing-vite8" target="_blank" rel="noopener">vite.dev — Vite 8.0 is out!</a> (official project blog)</div>
+  </div>
+
+  <div class="item">
+    <h3>Runtime competition: Bun, Deno, Node</h3>
+    <div class="tags"><span class="tag">Adoption shift</span></div>
+    <p>Deno 2.7 adds the Temporal API, Windows ARM support, and npm overrides. All three runtimes are now considered production-ready, so the "pick one" decision is more deliberate than before.</p>
+    <div class="src">Source: <a href="https://www.programming-helper.com/tech/deno-2026-javascript-runtime-challenging-nodejs-bun" target="_blank" rel="noopener">Deno 2026: The New JavaScript Runtime Challenging Node.js and Bun</a></div>
+  </div>
+
+  <h2 id="backend-frameworks">Backend Frameworks</h2>
+
+  <div class="item">
+    <h3>Django 6.1 released Aug 5</h3>
+    <div class="tags"><span class="tag">New release</span></div>
+    <p>Includes a 6.0.8 patch on Aug 4. Routine point releases, no major breaking changes flagged in the sources found.</p>
+    <div class="src">Source: <a href="https://versionlog.com/django/6.1/" target="_blank" rel="noopener">VersionLog — Django 6.1</a></div>
+  </div>
+
+  <div class="item">
+    <h3>Laravel 13.x ongoing updates</h3>
+    <div class="tags"><span class="tag">New release</span></div>
+    <p>Recent patches (as of Aug 6) cover deprecation logging, <code>Factory::insert()</code>, <code>schedule:list</code> timezone fixes, plus additions to Eloquent, validation, queueing, image handling, routing, and PHP 8.5 compatibility.</p>
+    <div class="src">Source: <a href="https://releasebot.io/updates/laravel" target="_blank" rel="noopener">Laravel Release Notes — August 2026</a></div>
+  </div>
+
+  <p class="note">No clear recency signal this week for FastAPI, Spring, Rails, or .NET specifically &mdash; flagged as a gap rather than padded with stale comparisons.</p>
+
+  <h2 id="ai-agentic-dev-tooling">AI/Agentic Dev Tooling</h2>
+
+  <div class="item">
+    <h3>Context engineering overtakes prompt engineering as the focus</h3>
+    <div class="tags"><span class="tag">Notable launch/announcement</span></div>
+    <p>A cited 9,649-experiment study argues context quality predicts output quality better than prompt quality. Practical guidance converging on: plan in the IDE, execute in a sandboxed agent, gate on CI + PR review before merge.</p>
+    <div class="src">Source: <a href="https://blog.getbind.co/context-engineering-in-2026-the-complete-developers-guide/" target="_blank" rel="noopener">Context Engineering 2026: Complete Developer Guide</a></div>
+    <div class="unverified">Underlying "9,649-experiment" study wasn't independently located &mdash; treat the figure as the blog's own citation, not independently verified.</div>
+  </div>
+
+  <div class="item">
+    <h3>Claude Code / Cursor continue taking share from GitHub Copilot</h3>
+    <div class="tags"><span class="tag">Adoption shift</span></div>
+    <p>Cited survey data: Copilot's share among professional devs fell from 67% to 51%; Cursor debuted around 18% adoption; Claude Code reached 10% but leads on a "most loved" metric (46% vs. Cursor 19%, Copilot 9%). Microsoft is reportedly countering with an in-house model ("Project Polaris") for Copilot.</p>
+    <div class="src">Source: <a href="https://pasqualepillitteri.it/en/news/3392/github-copilot-cursor-claude-code-ai-coding-showdown-2026" target="_blank" rel="noopener">GitHub Copilot Under Pressure: Cursor and Claude Code Are Eating Its Lunch</a></div>
+    <div class="unverified">Survey methodology and "Project Polaris" claim not independently confirmed via a primary Microsoft/GitHub source &mdash; treat as reported, not verified.</div>
+  </div>
+
+  <div class="item">
+    <h3>Multi-tool workflows becoming normal</h3>
+    <div class="tags"><span class="tag">Adoption shift</span></div>
+    <p>A cited March 2026 developer survey (99 respondents) found ~29% run Cursor, Claude Code, and Copilot simultaneously, switching by task rather than standardizing on one.</p>
+    <div class="src">Source: <a href="https://www.nxcode.io/resources/news/cursor-vs-claude-code-vs-github-copilot-2026-ultimate-comparison" target="_blank" rel="noopener">Cursor vs Claude Code vs GitHub Copilot 2026</a></div>
+    <div class="unverified">Small sample size (99 respondents) from a single survey &mdash; directional only.</div>
+  </div>
+
+  <div class="item">
+    <h3>Agent-framework GitHub activity</h3>
+    <div class="tags"><span class="tag">Adoption shift</span></div>
+    <p>"Claude-mem" (persistent cross-session context/memory for agents) and a fast-growing project referred to as "OpenClaw" (from ~9K to 200K+ stars since a January viral spike) show continued star-velocity in the agent-tooling space, alongside steady growth for n8n.</p>
+    <div class="src">Source: <a href="https://ossinsight.io/trending/ai" target="_blank" rel="noopener">OSSInsight — Trending AI Repositories on GitHub</a></div>
+    <div class="unverified">Star/name figures come from an aggregator site, not GitHub itself &mdash; treat as approximate.</div>
+  </div>
+
+  <footer>
+    Auto-generated weekly. Full report and source archive: <a href="reports/trend-report-2026-08-18.md">reports/trend-report-2026-08-18.md</a>. Running history: <a href="trend-log.md">trend-log.md</a>.
+  </footer>
+</div>
+</body>
+</html>
