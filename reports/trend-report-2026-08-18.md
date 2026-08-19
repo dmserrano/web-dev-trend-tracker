@@ -1,60 +1,56 @@
 # Software Industry Trend Report — 2026-08-18
 
 ## TL;DR
-- **JS Frameworks:** React still dominant (~40-45% share); Svelte and Vue both mid-transition (SvelteKit 3 preview, Vue Vapor Mode still prerelease).
-- **Frontend Tooling:** Rust is eating the JS toolchain — Astro 7 and Vite 8 both moved to Rust-based compilers/bundlers (Rolldown), with large build-speed gains.
-- **Backend Frameworks:** Routine point releases only (Django 6.1, Laravel 13.x); most ecosystems had no dated news this week.
-- **AI/Agentic Dev Tooling:** "Context engineering" overtaking prompt engineering as the framing; Claude Code and Cursor continue taking measurable share from GitHub Copilot.
+- **JS Frameworks:** SvelteKit 3 enters Release Candidate with real breaking changes; Angular shipped a routine patch; Vue and React had no notable news this week.
+- **Frontend Tooling:** Astro 7.2.1 continues the Rust-toolchain rollout; Vite, Next.js, and bundler/runtime news were all stale — flagged as a gap.
+- **Backend Frameworks:** Rails 7.2.x hit end-of-life; .NET shipped its routine August security servicing release; no fresh news for Django, FastAPI, Spring, or Laravel this week.
+- **AI/Agentic Dev Tooling:** Claude Code is shipping near-daily point releases; Cursor launched "Origin," a GitHub-competing code-hosting beta; Copilot and Grok Build had smaller, secondary-sourced updates.
 
 ## Table of Contents
-- [vs. Last Week](#vs-last-week)
 - [JS Frameworks](#js-frameworks)
 - [Frontend Tooling](#frontend-tooling)
 - [Backend Frameworks](#backend-frameworks)
 - [AI/Agentic Dev Tooling](#aiagentic-dev-tooling)
 
-## vs. Last Week
-No prior log entry exists yet, so no comparison. This report establishes the baseline; next week's run will diff against it.
-
 ---
 
 ## JS Frameworks
 
-**Svelte / SvelteKit 3 preview** — Thirteen `@next` preview releases shipped in July previewing SvelteKit 3, including new `$app/manifest` and `$app/service-worker` modules, better type checking in service workers, and shallow routing baked into `goto`. *Adoption shifts.* [What's new in Svelte: August 2026](https://svelte.dev/blog/whats-new-in-svelte-august-2026)
+**SvelteKit 3 enters Release Candidate** — Shipped Aug 13 with real breaking changes: config moves from `svelte.config.js` into `vite.config.ts`, the `$lib` alias is replaced by Node subpath imports (`#lib`), service workers get a new `$app/manifest` module, explicit environment variables graduate out of experimental, and all errors now flow through `handleError`. Requires Svelte 5 and Vite 8. A stable release is expected next with no further breaking changes. *New releases / major version bumps.* [The SvelteKit 3 Release Candidate is here — svelte.dev](https://svelte.dev/blog/sveltekit-3-release-candidate) (official project blog)
 
-**Vue 3.6 / Vapor Mode still prerelease** — As of Aug 11, Vue 3.6.0-rc.3 remains a prerelease (3.5.41 is still "Latest" on npm). Vapor Mode — direct DOM updates with no Virtual DOM — is stabilizing but a `vaporInteropPlugin` is needed to mix Vapor and VDOM components. Caution still advised before adopting in production. *New releases / major version bumps (pending).* [Vue 3.6 RC and Vapor Mode: Status, Limits, Evaluation](https://todovue.blog/blog/vue-3-6-rc-vapor-mode-status-limits-evaluation-2026.en/)
+**Angular 22.1.2 patch release** — Shipped Aug 13: fixes for optional-chaining expression generation, `SafePropertyRead` resolution in chained optional navigation, a defer-block loop bug, and rejecting prefixed SVG script hosts. Routine bugfix release, no new features. *New releases / major version bumps (minor/routine).* [Release 22.1.2 — GitHub](https://github.com/angular/angular/releases/tag/v22.1.2) (official repo)
 
-**React holds ~40-45% market share** — React remains dominant, with the React 19 compiler cutting unnecessary re-renders 25-40% in cited benchmarks. No major release news this week specifically, but ecosystem commentary continues to frame 2026 frameworks around fine-grained reactivity and compiler-driven optimization. *Adoption shifts.* [JavaScript Framework Trends in 2026](https://www.nucamp.co/blog/javascript-framework-trends-in-2026-what-s-new-in-react-next.js-vue-angular-and-svelte)
+**Vue 3.5.38 patch** — A round of bug fixes across compiler-core, compiler-sfc, runtime-core, reactivity, transitions, and watchers, improving `v-for` lifecycle handling, async setup, hydration, and `v-model` behavior. Routine point release; Vue 3.6/Vapor Mode remains in prerelease with no change this week. *New releases / major version bumps (minor/routine).* [Vue.js Core Updates — Releasebot](https://releasebot.io/updates/vue/vue-core) — third-party aggregator, not the official Vue blog; treat version specifics as directional.
+
+No dated React news this week — the latest documented release remains v19.2.7 from June. Flagged as a gap rather than padded with older material.
 
 ---
 
 ## Frontend Tooling
 
-**Astro 7 alpha ships with Rust compiler + Vite 8** — The `.astro` compiler has been rewritten in Rust, Markdown/MDX processing moves to a new Rust pipeline, and Astro now sits on Vite 8. Builds are 15-61% faster depending on project size — a notable move away from the prior Go/esbuild toolchain. *New releases / major version bumps.* [Astro 7: Rust Compiler, Vite 8, Up to 61% Faster Builds — InfoQ](https://www.infoq.com/news/2026/08/astro-7-release-speed/)
+**Astro 7.2.1 ships** — Released Aug 11, continuing Astro 7's move to a Rust-based `.astro` compiler and Rust Markdown/MDX pipeline atop Vite 8, with builds reported 15–61% faster depending on project size. This is a point release consolidating the Astro 7 migration rather than new headline features. *New releases / major version bumps.* [Astro 7: Rust Compiler, Vite 8, Up to 61% Faster Builds — InfoQ](https://www.infoq.com/news/2026/08/astro-7-release-speed/)
 
-**Vite 8.0 released, ships Rolldown by default** — Rolldown, a Rust-based bundler, now replaces both esbuild (dev) and Rollup (prod) in a single tool, claiming 10-30x speed over Rollup while keeping Rollup plugin API compatibility. This is the biggest structural shift in the Vite ecosystem in some time. *New releases / major version bumps.* [Vite 8.0 is out!](https://vite.dev/blog/announcing-vite8)
-
-**Runtime competition: Bun, Deno, Node** — Deno 2.7 adds the Temporal API, Windows ARM support, and npm overrides. Bun continues to be positioned as the performance-first alternative (backed by Anthropic), while Node remains the npm-compatibility default. All three are now considered production-ready, so the "pick one" decision is more deliberate than before. *Adoption shifts.* [Deno 2026: The New JavaScript Runtime Challenging Node.js and Bun](https://www.programming-helper.com/tech/deno-2026-javascript-runtime-challenging-nodejs-bun)
+No fresh Vite, Next.js, or JS-runtime (Bun/Deno/Node) news landed this week — Next.js 16.3 and Vite 8.0.9 both date back to earlier in the year, and a direct check of GitHub's trending JavaScript page didn't return usable results this run. Flagged as a gap.
 
 ---
 
 ## Backend Frameworks
 
-**Django 6.1 released Aug 5** (with a 6.0.8 patch Aug 4) — routine point releases, no major breaking changes flagged in the sources found. *New releases / major version bumps.* [Django 6.1 — VersionLog](https://versionlog.com/django/6.1/)
+**Rails 7.2.x reaches end-of-life** — Support for the Rails 7.2 series ended Aug 9, 2026, meaning it no longer receives bug or security fixes. Rails 8.1.3.1 remains the actively supported release (through Oct 2027); Rails 8.0 support ends Nov 7, 2026. *Deprecations / sunsets / notable criticism.* [Ruby on Rails EOL Dates — eosl.date](https://eosl.date/eol/product/rails/) — sourced from a third-party EOL-tracking site rather than rubyonrails.org directly; treat dates as accurate but not independently re-verified against the primary maintenance policy page.
 
-**Laravel 13.x ongoing updates** — Recent patches (as of Aug 6) cover deprecation logging, `Factory::insert()`, `schedule:list` timezone conversion fixes, plus broader 13.x additions to Eloquent, validation, queueing, image handling, routing, and PHP 8.5 compatibility. *New releases / major version bumps.* [Laravel Release Notes — August 2026](https://releasebot.io/updates/laravel)
+**.NET August 2026 servicing release** — Microsoft shipped .NET 10.0.11, 9.0.19, and 8.0.30 on Aug 11, addressing several "Important"-rated vulnerabilities (elevation of privilege, remote code execution, information disclosure, denial of service) plus a .NET Framework RCE (CVE-2026-70354). Routine monthly security servicing, not a feature release. *New releases / major version bumps (minor/routine).* [.NET and .NET Framework August 2026 servicing releases — .NET Blog](https://devblogs.microsoft.com/dotnet/dotnet-and-dotnet-framework-august-2026-servicing-updates/) (official)
 
-No clear recency signal this week for FastAPI, Spring, Rails, or .NET specifically — search results skewed toward generic "best backend framework 2026" listicles rather than dated changelog news. Flagging as a gap rather than padding with stale comparisons.
+No dated news this week for Django, FastAPI, Spring Boot, or Laravel — Django 6.1 (Aug 5) and Laravel's latest 13.x patches (Aug 6) are both now outside the ~7–10 day recency window, and Spring Boot's last release (4.1.0) was in June. Flagging as a gap rather than repeating stale items.
 
 ---
 
 ## AI/Agentic Dev Tooling
 
-**Context engineering overtakes prompt engineering as the focus** — A cited 9,649-experiment study argues context quality predicts output quality better than prompt quality, and Anthropic data shows agents now averaging ~20 autonomous actions before needing human input in coding workflows — meaning context errors compound across a longer unsupervised chain than a year ago. Practical guidance converging on: plan in the IDE, execute in a sandboxed agent, gate on CI + PR review before merge. *Notable launches / announcements.* [Context Engineering 2026: Complete Developer Guide](https://blog.getbind.co/context-engineering-in-2026-the-complete-developers-guide/)
+**Claude Code shipping near-daily point releases** — Per the official changelog, recent releases include v2.1.235 (Aug 18: optional spellcheck in prompt input, cache-invalidation and markdown-rendering fixes), v2.1.234 (Aug 17: `CLAUDE_CODE_PROJECT_DIR_NAME` env var, GitLab MR badge, auto-continue on usage-limit reset, stronger credential-leak protections), v2.1.233 (Aug 14: GitLab MR support in worktree view), and v2.1.232 (Aug 13: `@`-mention of other Claude sessions). *New releases / major version bumps.* [Claude Code changelog — code.claude.com](https://code.claude.com/docs/en/changelog) (official docs) — specific version-by-version feature attribution above was cross-checked against third-party changelog trackers (Havoptic, Releasebot) rather than a full read of the official page; treat granular details as directional pending direct confirmation.
 
-**Claude Code / Cursor continue taking share from GitHub Copilot** — Cited Stack Overflow-style survey data: Copilot's share among professional devs fell from 67% to 51%; Cursor debuted around 18% adoption; Claude Code reached 10% on its first survey appearance but leads on a "most loved" metric (46% vs. Cursor 19%, Copilot 9%). Claude Code is cited at 80.8% on SWE-bench Verified with a 1M-token context window. Microsoft is countering with "Project Polaris," an in-house MoE model slated to replace GPT-4 Turbo as Copilot's default engine this month, running on Azure's Maia accelerators. *Adoption shifts.* [GitHub Copilot Under Pressure: Cursor and Claude Code Are Eating Its Lunch](https://pasqualepillitteri.it/en/news/3392/github-copilot-cursor-claude-code-ai-coding-showdown-2026)
+**Cursor launches "Origin," a GitHub-competing code-hosting beta** — Rolled out Aug 17 in early beta on paid plans (not available on free). Adds a Codebase tab with repo browsing/search, PRs with timeline/commits/checks/diffs, two-way real-time GitHub sync, and agent-powered repo actions with Vercel/Depot/Buildkite integrations. *Notable launches / announcements.* [Cursor Changelog](https://cursor.com/changelog)
 
-**Multi-tool workflows becoming normal** — A cited March 2026 developer survey (99 respondents) found ~29% run Cursor, Claude Code, and Copilot simultaneously, switching by task rather than standardizing on one. Worth noting for anyone evaluating tool consolidation vs. best-of-breed. *Adoption shifts.* [Cursor vs Claude Code vs GitHub Copilot 2026 — Ultimate Comparison](https://www.nxcode.io/resources/news/cursor-vs-claude-code-vs-github-copilot-2026-ultimate-comparison)
+**GitHub Copilot CLI v1.0.78** — Released Aug 3 (now nearing the edge of this week's recency window): live per-tool timing display, plus a persistent memory feature so agent chat sessions retain project context across conversations, and the ability to switch between Claude BYOK and built-in Copilot models mid-session. *New releases / major version bumps (minor/routine — dated slightly outside the tightest recency window, included as the only fresh Copilot signal this week).* [Havoptic — GitHub Copilot tracker](https://www.havoptic.com/tools/github-copilot) — secondary aggregator source, not GitHub's own release notes; treat specifics as directional.
 
-**Agent-framework GitHub activity** — "Claude-mem" (persistent cross-session context/memory for agents) and a fast-growing agent project referred to as "OpenClaw" (from ~9K to 200K+ stars since a January viral spike) show continued star-velocity in the agent-tooling space, alongside steady growth for n8n's AI-enhanced workflow automation. Note: these star/name figures come from aggregator sites and should be treated as directional, not verified. *Adoption shifts.* [Trending AI Repositories on GitHub — OSSInsight](https://ossinsight.io/trending/ai)
+**Grok Build defaults to Grok 4.6** — xAI's terminal coding-agent CLI (launched in beta in May) reportedly switched its default model to Grok 4.6, a 500K-token-context model, as of Aug 12. *Adoption shifts.* [Grok Build: xAI's Agent CLI Reviewed — Buildfastwithai](https://www.buildfastwithai.com/blogs/grok-build-xai-cli-ai-agents-2026) — reported via secondary blog coverage, not xAI's own docs.x.ai release notes; treat as directional pending primary confirmation.
 
