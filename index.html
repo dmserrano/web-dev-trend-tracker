@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Web Dev Trend Tracker — 2026-08-18</title>
+<title>Web Dev Trend Tracker — 2026-08-24</title>
 <style>
   :root {
     --bg: #0f1117; --panel: #171a23; --text: #e6e8ee; --muted: #9aa1b1;
@@ -44,110 +44,90 @@
 <div class="wrap">
   <header>
     <h1>Web Dev Trend Tracker</h1>
-    <div class="date">Week of 2026-08-18</div>
+    <div class="date">Week of 2026-08-24</div>
   </header>
 
   <section class="tldr">
     <h2>TL;DR</h2>
     <ul>
-      <li><a href="#js-frameworks"><strong>JS Frameworks:</strong></a> SvelteKit 3 enters Release Candidate with real breaking changes; Angular shipped a routine patch; Vue and React had no notable news this week.</li>
-      <li><a href="#frontend-tooling"><strong>Frontend Tooling:</strong></a> Astro 7.2.1 continues the Rust-toolchain rollout; Vite, Next.js, and bundler/runtime news were all stale this week.</li>
-      <li><a href="#backend-frameworks"><strong>Backend Frameworks:</strong></a> Rails 7.2.x hit end-of-life; .NET shipped its routine August security servicing release; Django, FastAPI, Spring, and Laravel had no fresh news.</li>
-      <li><a href="#ai-agentic-dev-tooling"><strong>AI/Agentic Dev Tooling:</strong></a> Claude Code is shipping near-daily point releases; Cursor launched &ldquo;Origin,&rdquo; a GitHub-competing code-hosting beta; Copilot and Grok Build had smaller, secondary-sourced updates.</li>
+      <li><a href="#js-frameworks"><strong>JS Frameworks:</strong></a> Angular shipped a routine patch plus a 22.2 prerelease; React, Vue, and Svelte had no fresh dated news this week.</li>
+      <li><a href="#frontend-tooling"><strong>Frontend Tooling:</strong></a> Next.js 16.3's Turbopack work landed with large dev-memory and cached-build speedups; Astro and Vite were both quiet.</li>
+      <li><a href="#backend-frameworks"><strong>Backend Frameworks:</strong></a> Spring Boot had its biggest week of the year &mdash; 4.1.1, 4.0.8, and a 4.2.0-M1 milestone all shipped; Django, FastAPI, Laravel, Rails, and .NET had nothing new.</li>
+      <li><a href="#ai-agentic-dev-tooling"><strong>AI/Agentic Dev Tooling:</strong></a> SpaceX closed its $60B acquisition of Cursor; Claude Code kept shipping near-daily releases; GitHub brought Copilot into Slack and Teams in public preview.</li>
+      <li><a href="#vs-last-week"><strong>vs. Last Week:</strong></a> what continued, what's new, what faded.</li>
     </ul>
   </section>
+
+  <h2 id="vs-last-week">vs. Last Week</h2>
+  <p>Claude Code's near-daily release cadence continues (v2.1.232&ndash;235 last week, v2.1.234&ndash;237 this week). Cursor stayed the biggest AI/agentic story two weeks running &mdash; last week's &ldquo;Origin&rdquo; code-hosting beta launch is now overshadowed by the SpaceX acquisition closing. New this week: Spring Boot went from silent since June to three releases in one day; GitHub Copilot's Slack/Teams integration is a fresh, well-corroborated item; Angular had a patch + prerelease. Faded: SvelteKit 3 RC (last week's headline JS item) had no follow-up; Astro and Rails, both notable last week, had nothing new; Grok Build's default-model story didn't continue.</p>
 
   <h2 id="js-frameworks">JS Frameworks</h2>
 
   <div class="item">
-    <h3>SvelteKit 3 enters Release Candidate</h3>
-    <div class="tags"><span class="tag">New release</span></div>
-    <p>Shipped Aug 13 with real breaking changes: config moves from <code>svelte.config.js</code> into <code>vite.config.ts</code>, the <code>$lib</code> alias is replaced by Node subpath imports (<code>#lib</code>), service workers get a new <code>$app/manifest</code> module, explicit environment variables graduate out of experimental, and all errors now flow through <code>handleError</code>. Requires Svelte 5 and Vite 8.</p>
-    <div class="src">Source: <a href="https://svelte.dev/blog/sveltekit-3-release-candidate" target="_blank" rel="noopener">svelte.dev — The SvelteKit 3 Release Candidate is here</a> (official project blog)</div>
-  </div>
-
-  <div class="item">
-    <h3>Angular 22.1.2 patch release</h3>
+    <h3>Angular 22.1.3 and 22.2.0-next.3</h3>
     <div class="tags"><span class="tag">New release (routine)</span></div>
-    <p>Shipped Aug 13: fixes for optional-chaining expression generation, <code>SafePropertyRead</code> resolution in chained optional navigation, a defer-block loop bug, and rejecting prefixed SVG script hosts. Routine bugfix release, no new features.</p>
-    <div class="src">Source: <a href="https://github.com/angular/angular/releases/tag/v22.1.2" target="_blank" rel="noopener">GitHub — Release 22.1.2</a> (official repo)</div>
+    <p>Shipped Aug 19 alongside 21.2.21 and 20.3.29 backports. 22.1.3 is a routine patch on the current stable line; 22.2.0-next.3 is a prerelease preview of the next minor. No breaking changes documented.</p>
+    <div class="src">Source: <a href="https://github.com/angular/angular/releases" target="_blank" rel="noopener">GitHub — angular/angular releases</a> (official repo)</div>
   </div>
 
-  <div class="item">
-    <h3>Vue 3.5.38 patch</h3>
-    <div class="tags"><span class="tag">New release (routine)</span></div>
-    <p>A round of bug fixes across compiler-core, compiler-sfc, runtime-core, reactivity, transitions, and watchers. Routine point release; Vue 3.6/Vapor Mode remains in prerelease with no change this week.</p>
-    <div class="src">Source: <a href="https://releasebot.io/updates/vue/vue-core" target="_blank" rel="noopener">Releasebot — Vue.js Core Updates</a></div>
-    <div class="unverified">Third-party aggregator, not the official Vue blog &mdash; treat version specifics as directional.</div>
-  </div>
-
-  <p class="note">No dated React news this week &mdash; the latest documented release remains v19.2.7 from June. Flagged as a gap rather than padded with older material.</p>
+  <p class="note">No dated news this week for React (still v19.2.7 from June), Vue (only patch activity found, 3.5.38, was already reported last week and its dating proved inconsistent on follow-up), or Svelte/SvelteKit (August's official blog post recaps July's SvelteKit 3 preview work, already covered last week). Flagged as gaps rather than padded with repeat material.</p>
 
   <h2 id="frontend-tooling">Frontend Tooling</h2>
 
   <div class="item">
-    <h3>Astro 7.2.1 ships</h3>
+    <h3>Next.js 16.3's Turbopack improvements</h3>
     <div class="tags"><span class="tag">New release</span></div>
-    <p>Released Aug 11, continuing Astro 7's move to a Rust-based <code>.astro</code> compiler and Rust Markdown/MDX pipeline atop Vite 8, with builds reported 15&ndash;61% faster depending on project size. A point release consolidating the Astro 7 migration rather than new headline features.</p>
-    <div class="src">Source: <a href="https://www.infoq.com/news/2026/08/astro-7-release-speed/" target="_blank" rel="noopener">InfoQ — Astro 7: Rust Compiler, Vite 8, Up to 61% Faster Builds</a></div>
+    <p>The official Next.js blog detailed Turbopack gains in 16.3: up to 90% less memory usage in <code>next dev</code> via disk caching and memory eviction, a persistent disk cache giving up to 5.5&times; faster cached <code>next build</code> runs, an experimental Rust-native React Compiler (20&ndash;50% faster than Babel), and new <code>import.meta.glob</code> support.</p>
+    <div class="src">Source: <a href="https://nextjs.org/blog/next-16-3-turbopack" target="_blank" rel="noopener">nextjs.org/blog — Turbopack: What's New in Next.js 16.3</a> (official)</div>
+    <div class="unverified">The underlying 16.3 version shipped near the edge of this week's recency window (secondary sources date it to Aug 14); included because the Turbopack write-up itself is a primary-sourced, substantive deep-dive.</div>
   </div>
 
-  <p class="note">No fresh Vite, Next.js, or JS-runtime (Bun/Deno/Node) news landed this week &mdash; Next.js 16.3 and Vite 8.0.9 both date back to earlier in the year. Flagged as a gap.</p>
+  <p class="note">No fresh Astro or Vite news this week &mdash; Astro's last release (7.2.1, covered last week) had no follow-up, and Vite's last stable release remains 8.0.9 from April. Flagged as a gap.</p>
 
   <h2 id="backend-frameworks">Backend Frameworks</h2>
 
   <div class="item">
-    <h3>Rails 7.2.x reaches end-of-life</h3>
-    <div class="tags"><span class="tag">Deprecation/sunset</span></div>
-    <p>Support for the Rails 7.2 series ended Aug 9, 2026, meaning it no longer receives bug or security fixes. Rails 8.1.3.1 remains the actively supported release (through Oct 2027); Rails 8.0 support ends Nov 7, 2026.</p>
-    <div class="src">Source: <a href="https://eosl.date/eol/product/rails/" target="_blank" rel="noopener">eosl.date — Ruby on Rails EOL Dates</a></div>
-    <div class="unverified">Sourced from a third-party EOL-tracking site rather than rubyonrails.org directly &mdash; treat dates as accurate but not independently re-verified against the primary maintenance policy page.</div>
+    <h3>Spring Boot's biggest week this year</h3>
+    <div class="tags"><span class="tag">New release</span></div>
+    <p>Spring shipped three releases on Aug 20: <strong>4.1.1</strong> (98 bug fixes, documentation improvements, and dependency upgrades), <strong>4.0.8</strong> (patch on the 4.0 line), and <strong>4.2.0-M1</strong>, a milestone with 113 enhancements including new AMQP 1.0 support with RabbitMQ-specific features. A marked pickup after a quiet stretch &mdash; Spring Boot's last release before this week was in June.</p>
+    <div class="src">Source: <a href="https://spring.io/blog/2026/08/20/spring-boot-4-1-1-available-now" target="_blank" rel="noopener">spring.io/blog — Spring Boot 4.1.1 available now</a> (official)</div>
   </div>
 
-  <div class="item">
-    <h3>.NET August 2026 servicing release</h3>
-    <div class="tags"><span class="tag">New release (routine)</span></div>
-    <p>Microsoft shipped .NET 10.0.11, 9.0.19, and 8.0.30 on Aug 11, addressing several &ldquo;Important&rdquo;-rated vulnerabilities plus a .NET Framework RCE (CVE-2026-70354). Routine monthly security servicing, not a feature release.</p>
-    <div class="src">Source: <a href="https://devblogs.microsoft.com/dotnet/dotnet-and-dotnet-framework-august-2026-servicing-updates/" target="_blank" rel="noopener">.NET Blog — August 2026 servicing releases</a> (official)</div>
-  </div>
-
-  <p class="note">No dated news this week for Django, FastAPI, Spring Boot, or Laravel &mdash; Django 6.1 (Aug 5) and Laravel's latest 13.x patches (Aug 6) are both now outside the recency window, and Spring Boot's last release (4.1.0) was in June. Flagged as a gap rather than repeating stale items.</p>
+  <p class="note">No dated news this week for Django (6.1 was Aug 5, now stale), FastAPI (latest changes are from July), Laravel (last patches Aug 6), Rails (last week's EOL news had no follow-up), or .NET (no new servicing release since Aug 11). Flagged as a gap.</p>
 
   <h2 id="ai-agentic-dev-tooling">AI/Agentic Dev Tooling</h2>
 
   <div class="item">
-    <h3>Claude Code shipping near-daily point releases</h3>
-    <div class="tags"><span class="tag">New release</span></div>
-    <p>Per the official changelog, recent releases include v2.1.235 (Aug 18: optional spellcheck, cache-invalidation and markdown-rendering fixes), v2.1.234 (Aug 17: new env var, GitLab MR badge, auto-continue on usage-limit reset, stronger credential-leak protections), v2.1.233 (Aug 14: GitLab MR support in worktree view), and v2.1.232 (Aug 13: @-mention of other Claude sessions).</p>
-    <div class="src">Source: <a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">code.claude.com — Claude Code changelog</a> (official docs)</div>
-    <div class="unverified">Version-by-version feature attribution above was cross-checked against third-party changelog trackers (Havoptic, Releasebot) rather than a full read of the official page &mdash; treat granular details as directional.</div>
+    <h3>SpaceX closes its $60 billion acquisition of Cursor</h3>
+    <div class="tags"><span class="tag">Adoption shift</span><span class="tag">Notable announcement</span></div>
+    <p>The deal, first struck as an option in April and made a firm commitment in June, closed Aug 14&ndash;15, 2026. Cursor gains access to SpaceX's Colossus supercomputer and what it describes as the world's largest GPU fleet, positioning it to build more powerful in-house models. Widely corroborated by primary/reputable outlets.</p>
+    <div class="src">Sources: <a href="https://techcrunch.com/2026/08/15/spacex-officially-closes-its-cursor-acquisition/" target="_blank" rel="noopener">TechCrunch</a>, <a href="https://www.bloomberg.com/news/articles/2026-08-14/spacex-completes-its-60-billion-cursor-acquisition" target="_blank" rel="noopener">Bloomberg</a>, <a href="https://cursor.com/blog/joining-spacex" target="_blank" rel="noopener">Cursor — Cursor is now a part of SpaceX</a> (official)</div>
   </div>
 
   <div class="item">
-    <h3>Cursor launches &ldquo;Origin,&rdquo; a GitHub-competing code-hosting beta</h3>
+    <h3>Cursor cloud agents gain event-driven autonomy</h3>
     <div class="tags"><span class="tag">Notable launch/announcement</span></div>
-    <p>Rolled out Aug 17 in early beta on paid plans (not available on free). Adds a Codebase tab with repo browsing/search, PRs with timeline/commits/checks/diffs, two-way real-time GitHub sync, and agent-powered repo actions with Vercel/Depot/Buildkite integrations.</p>
+    <p>Aug 19 update: cloud agents can now pick up work automatically in response to events (monitoring PRs, watching a Slack thread, running scheduled tasks) and hold a goal through long-running sessions. Cursor-in-Slack now shares a plan before starting and can work across multiple repos, channels, and threads.</p>
     <div class="src">Source: <a href="https://cursor.com/changelog" target="_blank" rel="noopener">Cursor Changelog</a></div>
   </div>
 
   <div class="item">
-    <h3>GitHub Copilot CLI v1.0.78</h3>
-    <div class="tags"><span class="tag">New release (routine)</span></div>
-    <p>Released Aug 3: live per-tool timing display, a persistent memory feature so agent chat sessions retain project context, and the ability to switch between Claude BYOK and built-in Copilot models mid-session.</p>
-    <div class="src">Source: <a href="https://www.havoptic.com/tools/github-copilot" target="_blank" rel="noopener">Havoptic — GitHub Copilot tracker</a></div>
-    <div class="unverified">Secondary aggregator source, not GitHub's own release notes; also right at the edge of this week's recency window &mdash; included as the only fresh Copilot signal.</div>
+    <h3>Claude Code v2.1.234&ndash;v2.1.237</h3>
+    <div class="tags"><span class="tag">New release</span></div>
+    <p>Per the official changelog: v2.1.237 (Aug 19) fixed prompt caching for sessions using an LLM gateway or custom base URL and added a built-in &ldquo;Concise&rdquo; output style that leads with results and skips preamble/narration; v2.1.236 (Aug 19) fixed focus-jumping between open Claude tabs in VS Code; v2.1.234 (Aug 17) added the <code>CLAUDE_CODE_PROJECT_DIR_NAME</code> env var, a <code>selection:clear</code> keybinding action, GitLab merge-request badge support, and automatic session continuation when usage limits reset.</p>
+    <div class="src">Source: <a href="https://code.claude.com/docs/en/changelog" target="_blank" rel="noopener">code.claude.com — Claude Code changelog</a> (official docs)</div>
+    <div class="unverified">Version-level details cross-checked against a third-party tracker (Havoptic) rather than a full direct read of the primary page this run; treat granular wording as directional.</div>
   </div>
 
   <div class="item">
-    <h3>Grok Build defaults to Grok 4.6</h3>
-    <div class="tags"><span class="tag">Adoption shift</span></div>
-    <p>xAI's terminal coding-agent CLI (launched in beta in May) reportedly switched its default model to Grok 4.6, a 500K-token-context model, as of Aug 12.</p>
-    <div class="src">Source: <a href="https://www.buildfastwithai.com/blogs/grok-build-xai-cli-ai-agents-2026" target="_blank" rel="noopener">Buildfastwithai — Grok Build: xAI's Agent CLI Reviewed</a></div>
-    <div class="unverified">Reported via secondary blog coverage, not xAI's own docs.x.ai release notes &mdash; treat as directional pending primary confirmation.</div>
+    <h3>GitHub Copilot arrives in Slack and Microsoft Teams (public preview)</h3>
+    <div class="tags"><span class="tag">Notable launch/announcement</span></div>
+    <p>Announced Aug 21: teams can work with @GitHub in Slack/Teams to plan changes, investigate issues, triage bugs, and open PRs from within the conversations where they coordinate work, using a secure cloud sandbox. Available to Copilot Business and Enterprise plans.</p>
+    <div class="src">Source: <a href="https://github.blog/changelog/2026-08-21-the-new-github-copilot-experience-in-slack/" target="_blank" rel="noopener">github.blog/changelog — The new GitHub Copilot experience in Slack</a> (official)</div>
   </div>
 
   <footer>
-    Auto-generated weekly. Full report and source archive: <a href="reports/trend-report-2026-08-18.md">reports/trend-report-2026-08-18.md</a>. Running history: <a href="trend-log.md">trend-log.md</a>.
+    Auto-generated weekly. Full report and source archive: <a href="reports/trend-report-2026-08-24.md">reports/trend-report-2026-08-24.md</a>. Running history: <a href="trend-log.md">trend-log.md</a>.
   </footer>
 </div>
 </body>

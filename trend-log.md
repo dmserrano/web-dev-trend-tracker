@@ -2,6 +2,26 @@
 
 Running condensed history of weekly findings. Full reports live in `reports/`.
 
+## 2026-08-24
+
+**JS Frameworks**
+- Angular 22.1.3 + 22.2.0-next.3 (Aug 19) — routine patch plus next-line prerelease.
+- No fresh React, Vue, or Svelte news this week.
+
+**Frontend Tooling**
+- Next.js 16.3 Turbopack deep-dive: up to 90% less dev memory, 5.5x faster cached builds, experimental Rust React Compiler.
+- Gap: no fresh Astro or Vite news this week.
+
+**Backend Frameworks**
+- Spring Boot's biggest week of the year: 4.1.1, 4.0.8, and 4.2.0-M1 milestone (AMQP 1.0 support) all shipped Aug 20.
+- Gap: no fresh Django, FastAPI, Laravel, Rails, or .NET news this week.
+
+**AI/Agentic Dev Tooling**
+- SpaceX closed its $60B acquisition of Cursor (Aug 14-15) — well-corroborated, biggest story in scope this week.
+- Cursor cloud agents gained event-driven autonomy + Slack workflow upgrades (Aug 19).
+- Claude Code v2.1.234-237 (Aug 17-19) — Concise output style, GitLab MR support, session auto-continue.
+- GitHub Copilot launched in Slack + Teams, public preview (Aug 21).
+
 ## 2026-08-18
 
 **JS Frameworks**
